@@ -42,11 +42,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="footer__section footer__section--company">
               <div className="footer__logo">
-                <img src={MotiveLogo} alt="Motive Home Care" className="footer__logo-img" />
-                <div className="footer__logo-text">
-                  <span className="footer__logo-main">Motive</span>
-                  <span className="footer__logo-sub">Home Care</span>
-                </div>
+                <img src={MotiveLogo} alt="Motive Home Care" className="footer__logo-img footer__logo-img--large" />
               </div>
               <p className="footer__description">
                 We strive to connect dedicated clinicians with home health agencies throughout the Los Angeles region.
@@ -172,7 +168,7 @@ const Footer = () => {
                       </svg>
                     </div>
                     <div className="footer__contact-info">
-                      <span className="footer__contact-value">Mon - Fri, 9AM - 6PM</span>
+                      <span className="footer__contact-value">Mon - Fri, 9AM - 5:30PM</span>
                       <span className="footer__contact-label">Business Hours</span>
                     </div>
                   </div>

@@ -6,7 +6,7 @@
 
   // Hero Section - Warm and Welcoming
   .coverage-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
     color: white;
     padding: 6rem 0 4rem;
     position: relative;
@@ -89,11 +89,7 @@
         color: white;
 
         .title-gradient {
-          background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.2));
+          color: #d06a2b;
         }
 
         @media (max-width: 768px) {
@@ -780,6 +776,7 @@
           font-weight: 700;
           margin-bottom: 1.5rem;
           line-height: 1.2;
+          color: white;
 
           @media (max-width: 768px) {
             font-size: 2rem;
@@ -969,9 +966,9 @@
 
   // Bottom CTA - Inviting and Professional
   .bottom-cta {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 5rem 0;
+    background: white;
+    color: #1f2937;
+    padding: 4rem 0;
     position: relative;
     overflow: hidden;
 
@@ -983,8 +980,8 @@
       right: 0;
       bottom: 0;
       background: 
-        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.12) 0%, transparent 50%);
+        radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
       animation: gentleFloat 15s ease-in-out infinite;
     }
 
@@ -1003,6 +1000,7 @@
         font-weight: 700;
         margin-bottom: 1.5rem;
         line-height: 1.2;
+        color: #1f2937;
 
         @media (max-width: 768px) {
           font-size: 2.25rem;
@@ -1012,7 +1010,7 @@
       p {
         font-size: 1.2rem;
         margin-bottom: 2.5rem;
-        opacity: 0.9;
+        color: #6b7280;
         line-height: 1.6;
         max-width: 650px;
         margin-left: auto;
@@ -1059,27 +1057,27 @@
         }
 
         .cta-primary {
-          background: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(20px);
-          border: 2px solid rgba(255, 255, 255, 0.25);
+          background: #174686;
+          border: 2px solid #174686;
           color: white;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 25px rgba(23, 70, 134, 0.2);
 
           &:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            background: #1a365d;
+            border-color: #1a365d;
+            box-shadow: 0 15px 35px rgba(23, 70, 134, 0.25);
           }
         }
 
         .cta-secondary {
           background: transparent;
-          border: 2px solid rgba(255, 255, 255, 0.25);
-          color: white;
+          border: 2px solid #e2e8f0;
+          color: #374151;
 
           &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.4);
+            background: #f8fafc;
+            border-color: #174686;
+            color: #174686;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
           }
         }
@@ -1166,7 +1164,7 @@
       }
 
       .bottom-cta {
-        padding: 4rem 0;
+        padding: 3rem 0;
 
         .cta-container {
           padding: 0 1.5rem;

@@ -370,13 +370,13 @@ const coverageByService = {
               
               <div className="availability">
                 <div className="availability-dot"></div>
-                <span>Available Monday-Friday, 9AM-6PM PST</span>
+                <span>Available Monday-Friday, 9AM-5:30PM PST</span>
               </div>
               
               <div className="alternative-contact">
                 <span>Prefer email?</span>
                 <a href="mailto:info@motivehomecare.com" className="email-link">
-                  Send us a message
+                  info@motivehomecare.com
                 </a>
               </div>
             </div>

@@ -1,0 +1,250 @@
+/* AgenciesSlideshow.scss - Slideshow de logos de agencias según PDF */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ========================================== */
+/* VARIABLES DE COLOR SEGÚN PDF */
+/* ========================================== */
+$color-blue: #174686;
+$color-white: #ffffff;
+$color-gray: #6b7280;
+$color-light-gray: #f8f9fa;
+
+/* ========================================== */
+/* KEYFRAMES PARA ANIMACIONES */
+/* ========================================== */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* ========================================== */
+/* AGENCIES SLIDESHOW SECTION */
+/* ========================================== */
+.agencies-slideshow {
+  width: 100%;
+  background: $color-white;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.agencies-slideshow__wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ========================================== */
+/* HEADER CON TÍTULO */
+/* ========================================== */
+.agencies-slideshow__header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: slideIn 0.8s ease-out;
+}
+
+.agencies-slideshow__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 1.875rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+}
+
+.agencies-slideshow__highlight {
+  color: $color-blue; /* Azul según PDF */
+}
+
+/* ========================================== */
+/* SLIDESHOW CONTAINER - MOVIMIENTO SIMPLE */
+/* ========================================== */
+.agencies-slideshow__container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: $color-white;
+  padding: 2rem 0;
+}
+
+.agencies-slideshow__track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: slideLeftToRight 30s linear infinite;
+  width: max-content;
+  
+  @media (max-width: 768px) {
+    gap: 2rem;
+    animation-duration: 25s;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+    animation-duration: 20s;
+  }
+}
+
+/* Animación de slideshow continuo de derecha a izquierda */
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================================== */
+/* ITEMS Y TARJETAS DE LOGOS */
+/* ========================================== */
+.agencies-slideshow__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Tarjeta estándar para todos los logos */
+.agencies-slideshow__card {
+  width: 200px; /* Ancho fijo estándar */
+  height: 100px; /* Altura fija estándar */
+  background: #e9ecef; /* Gris más oscuro para mejor contraste con texto blanco */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid #dee2e6; /* Borde gris que combine con el nuevo fondo */
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-2px) scale(1.05); /* Solo agrandamiento sutil */
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.1),
+      0 10px 25px rgba(0, 0, 0, 0.06);
+    border-color: rgba(23, 70, 134, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    width: 170px;
+    height: 85px;
+    padding: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 140px;
+    height: 70px;
+    padding: 0.5rem;
+  }
+}
+
+.agencies-slideshow__logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  
+  /* Colores originales - sin filtros */
+  filter: none;
+  opacity: 1;
+  
+  .agencies-slideshow__card:hover & {
+    transform: scale(1.05);
+    filter: brightness(1.05) contrast(1.05);
+  }
+}
+
+/* ========================================== */
+/* EFECTOS ADICIONALES */
+/* ========================================== */
+
+/* Efecto de entrada para cada tarjeta */
+.agencies-slideshow__card {
+  animation: cardSlideIn 0.6s ease-out forwards;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================== */
+/* RESPONSIVE DESIGN */
+/* ========================================== */
+@media (max-width: 768px) {
+  .agencies-slideshow {
+    padding: 3rem 0;
+  }
+  
+  .agencies-slideshow__wrapper {
+    padding: 0 1.5rem;
+  }
+  
+  .agencies-slideshow__header {
+    margin-bottom: 2rem;
+  }
+  
+  .agencies-slideshow__container {
+    padding: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .agencies-slideshow {
+    padding: 2.5rem 0;
+  }
+  
+  .agencies-slideshow__wrapper {
+    padding: 0 1rem;
+  }
+  
+  .agencies-slideshow__header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .agencies-slideshow__container {
+    padding: 1rem 0;
+  }
+  
+  .agencies-slideshow__slide {
+    justify-content: space-around;
+  }
+}
