@@ -523,10 +523,7 @@
 }
 
 .premium-services__title-highlight {
-  background: linear-gradient(135deg, var(--premium-primary) 0%, var(--premium-accent) 50%, var(--premium-purple) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #d06a2b;
   position: relative;
   display: inline-block;
   
@@ -601,91 +598,26 @@
   animation-delay: var(--delay);
   opacity: 0;
   
-  .card-aura {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-      circle, 
-      rgba(59, 130, 246, 0.03) 0%, 
-      transparent 70%
-    );
-    opacity: 0;
-    transition: var(--premium-transition);
-    animation: auraBreathe 6s infinite ease-in-out;
-  }
   
-  .card-border-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg, 
-      var(--accent-color, var(--premium-primary)) 0%, 
-      transparent 50%, 
-      var(--accent-color, var(--premium-primary)) 100%
-    );
-    opacity: 0;
-    transition: var(--premium-transition);
-    border-radius: inherit;
-    padding: 2px;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      right: 2px;
-      bottom: 2px;
-      background: var(--premium-white);
-      border-radius: inherit;
-    }
-  }
   
   &:hover {
-    
-    .card-aura {
-      opacity: 1;
-    }
-    
-    .card-border-glow {
-      opacity: 0.3;
-    }
+    transform: translateY(-5px);
+    box-shadow: var(--premium-shadow-xl);
+    border-color: var(--accent-color, var(--premium-primary));
     
     .premium-services__benefit-image img {
-      transform: scale(1.1) rotate(2deg);
-      filter: brightness(1.1) contrast(1.1) saturate(1.2);
-    }
-    
-    .floating-elements .floating-dot {
-      animation-play-state: running;
+      transform: scale(1.05);
+      filter: brightness(1.05);
     }
     
     .premium-services__benefit-icon {
-      transform: scale(1.2) rotateY(360deg);
-      background: linear-gradient(135deg, var(--accent-color, var(--premium-primary)), var(--premium-accent));
+      transform: scale(1.1);
+      background: var(--accent-color, var(--premium-primary));
+      border-color: var(--accent-color, var(--premium-primary));
       
       svg {
         color: var(--premium-white);
       }
-      
-      .icon-pulse {
-        opacity: 1;
-        animation: premiumPulse 1s infinite ease-in-out;
-      }
-      
-      .icon-ring {
-        opacity: 1;
-        animation: iconOrbit 3s linear infinite;
-      }
-    }
-    
-    .benefit-shine {
-      animation: shimmerWave 1.5s ease-out;
     }
   }
 }
@@ -740,30 +672,6 @@
   }
 }
 
-.floating-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  
-  .floating-dot {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: rgba(59, 130, 246, 0.6);
-    border-radius: 50%;
-    animation: cosmicFloat 4s infinite ease-in-out;
-    animation-play-state: paused;
-    
-    &.dot-1 { top: 20%; left: 80%; animation-delay: 0s; }
-    &.dot-2 { top: 60%; left: 15%; animation-delay: 0.8s; }
-    &.dot-3 { top: 30%; left: 25%; animation-delay: 1.6s; }
-    &.dot-4 { top: 80%; left: 70%; animation-delay: 2.4s; }
-    &.dot-5 { top: 45%; left: 90%; animation-delay: 3.2s; }
-  }
-}
 
 .premium-services__benefit-content {
   padding: var(--premium-space-10);
@@ -786,32 +694,6 @@
   position: relative;
   overflow: hidden;
   
-  .icon-pulse {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-      circle, 
-      rgba(59, 130, 246, 0.2) 0%, 
-      transparent 70%
-    );
-    opacity: 0;
-    transition: var(--premium-transition);
-  }
-  
-  .icon-ring {
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
-    border: 2px solid rgba(59, 130, 246, 0.3);
-    border-radius: 50%;
-    opacity: 0;
-    transition: var(--premium-transition);
-  }
   
   svg {
     width: 36px;
@@ -869,34 +751,30 @@
 
 .premium-services__testimonials {
  margin-top: var(--premium-space-20);
+ background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+ padding: var(--premium-space-20) 0;
+ margin-left: calc(-50vw + 50%);
+ margin-right: calc(-50vw + 50%);
+ width: 100vw;
 }
 
 .premium-services__testimonials-header {
  text-align: center;
  margin-bottom: var(--premium-space-16);
+ padding: 0 var(--premium-space-8);
+ max-width: 1200px;
+ margin-left: auto;
+ margin-right: auto;
 }
 
 .premium-services__testimonials-title {
  font-size: 2.75rem;
  font-weight: 800;
- color: var(--premium-gray-900);
+ color: var(--premium-white);
  margin: 0 0 var(--premium-space-6);
  letter-spacing: -0.02em;
  position: relative;
  
- .testimonials-spark {
-   display: inline-block;
-   font-size: 2rem;
-   animation: premiumPulse 2s infinite ease-in-out;
-   
-   &:first-child {
-     animation-delay: 0s;
-   }
-   
-   &:last-child {
-     animation-delay: 1s;
-   }
- }
  
  @media (max-width: 768px) {
    font-size: 2.25rem;
@@ -905,7 +783,7 @@
 
 .premium-services__testimonials-subtitle {
  font-size: 1.125rem;
- color: var(--premium-gray-600);
+ color: rgba(255, 255, 255, 0.8);
  max-width: 700px;
  margin: 0 auto;
  line-height: 1.6;
@@ -915,23 +793,9 @@
  max-width: 1000px;
  margin: 0 auto;
  position: relative;
+ padding: 0 var(--premium-space-8);
 }
 
-.testimonial-background-glow {
- position: absolute;
- top: -10%;
- left: -10%;
- width: 120%;
- height: 120%;
- background: radial-gradient(
-   ellipse at center,
-   rgba(59, 130, 246, 0.08) 0%,
-   rgba(6, 182, 212, 0.05) 50%,
-   transparent 100%
- );
- animation: auraBreathe 8s infinite ease-in-out;
- border-radius: 50%;
-}
 
 .premium-services__testimonial-card {
  background: var(--premium-white);
@@ -942,7 +806,6 @@
  backdrop-filter: blur(20px);
  -webkit-backdrop-filter: blur(20px);
  position: relative;
- animation: testimonialGlow 4s infinite ease-in-out;
 }
 
 .testimonial-aurora {
@@ -1386,7 +1249,7 @@
 }
 
 .premium-services__option-badge {
- background: linear-gradient(135deg, var(--premium-primary) 0%, var(--premium-accent) 100%);
+ background: #174686;
  color: white;
  padding: var(--premium-space-3) var(--premium-space-5);
  border-radius: var(--premium-radius-lg);
@@ -1525,23 +1388,23 @@
  }
  
  &.primary {
-   background: linear-gradient(135deg, var(--premium-primary) 0%, var(--premium-accent) 100%);
+   background: #174686;
    color: white;
    
    &:hover {
-     background: linear-gradient(135deg, var(--premium-primary-light) 0%, var(--premium-accent-light) 100%);
+     background: #1e5096;
    }
  }
  
  &.secondary {
    background: var(--premium-white);
-   color: var(--premium-primary);
-   border: 3px solid var(--premium-primary);
+   color: #174686;
+   border: 3px solid #174686;
    
    &:hover {
-     background: linear-gradient(135deg, var(--premium-primary) 0%, var(--premium-accent) 100%);
+     background: #174686;
      color: white;
-     border-color: transparent;
+     border-color: #174686;
    }
  }
 }

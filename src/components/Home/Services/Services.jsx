@@ -65,7 +65,8 @@ const Services = () => {
     {
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
         </svg>
       ),
       title: "Specialized Therapy Staffing",
@@ -77,7 +78,8 @@ const Services = () => {
     {
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12,6 12,12 16,14"/>
         </svg>
       ),
       title: "Rapid Response Staffing",
@@ -89,7 +91,8 @@ const Services = () => {
     {
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
         </svg>
       ),
       title: "California Coverage",
@@ -101,7 +104,10 @@ const Services = () => {
     {
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          <circle cx="12" cy="8" r="6"/>
+          <path d="m9 8 2 2 4-4"/>
+          <path d="M8 14l4-1 4 1"/>
+          <path d="M8 14v9l4-2 4 2v-9"/>
         </svg>
       ),
       title: "Home Health Expertise",
@@ -283,18 +289,11 @@ const Services = () => {
                     <div className="image-grain"></div>
                   </div>
                   
-                  <div className="floating-elements">
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <div key={i} className={`floating-dot dot-${i + 1}`}></div>
-                    ))}
-                  </div>
                 </div>
                 
                 <div className="premium-services__benefit-content">
                   <div className="premium-services__benefit-icon">
-                    <div className="icon-pulse"></div>
                     {benefit.icon}
-                    <div className="icon-ring"></div>
                   </div>
                   
                   <h3 className="premium-services__benefit-title">{benefit.title}</h3>
@@ -313,9 +312,7 @@ const Services = () => {
           <div className="premium-services__testimonials">
             <div className="premium-services__testimonials-header">
               <h3 className="premium-services__testimonials-title">
-                <span className="testimonials-spark">✨</span>
                 Stories from Our Community
-                <span className="testimonials-spark">✨</span>
               </h3>
               <p className="premium-services__testimonials-subtitle">
                 Real experiences from real people who are part of the Motive family

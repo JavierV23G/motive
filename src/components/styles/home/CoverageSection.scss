@@ -1,0 +1,525 @@
+/* CoverageSection.scss - Estilos corregidos según PDF página 5 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+/* Variables de color */
+$color-blue: #174686;
+$color-orange: #d06a2b;
+$color-gray: #6b7280;
+$color-light-gray: #f3f4f6;
+$color-white: #ffffff;
+
+/* ========================================== */
+/* COVERAGE SECTION CONTAINER */
+/* ========================================== */
+.coverage-section {
+  width: 100%;
+  background: $color-white;
+  padding: 4rem 0;
+}
+
+.coverage-section__wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ========================================== */
+/* HEADER */
+/* ========================================== */
+.coverage-section__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.coverage-section__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.coverage-section__highlight {
+  color: $color-orange;
+}
+
+/* ========================================== */
+/* MAP CONTAINER CON IMAGEN DE FONDO */
+/* ========================================== */
+.coverage-section__map-container {
+  position: relative;
+  border-radius: 16px;
+  padding: 4rem 3rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  /* Imagen de fondo con blur mínimo */
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-image: inherit;
+    background-size: calc(100% + 4px);
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(0.5px); /* Blur super mínimo solo en la imagen */
+    z-index: 0;
+  }
+  
+  /* Overlay oscuro para dar profundidad y mejorar legibilidad */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Overlay oscuro uniforme para profundidad */
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 3rem 2rem;
+    min-height: 300px;
+  }
+}
+
+.coverage-section__map-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+}
+
+.coverage-section__map-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800; /* Extra bold para máxima nitidez */
+  color: #ffffff; /* Blanco puro para máxima claridad */
+  margin: 0 0 1.25rem 0;
+  letter-spacing: 1.5px; /* Más espaciado para claridad */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 1px rgba(0, 0, 0, 1); /* Sombra para definir bordes */
+  line-height: 1.1;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  filter: contrast(1.1) brightness(1.05); /* Mejorar contraste y brillo */
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    letter-spacing: 0.75px;
+  }
+}
+
+.coverage-section__map-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: #ffffff; /* Blanco puro para mejor legibilidad */
+  margin: 0 0 2.5rem 0;
+  font-weight: 600; /* Peso más bold para mejor legibilidad */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.7),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 1px rgba(0, 0, 0, 0.9); /* Sombra para definir bordes */
+  letter-spacing: 1px; /* Más espaciado para mejor legibilidad */
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  filter: contrast(1.1) brightness(1.05); /* Mejorar contraste y brillo */
+  
+  /* Línea subrayada elegante que cubre todo el texto */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.95); /* Línea más visible */
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Sombra para la línea */
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    letter-spacing: 0.75px;
+    
+    &::after {
+      height: 1.5px;
+    }
+  }
+}
+
+.coverage-section__map-info {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: rgba(248, 250, 252, 0.9); /* Blanco ultra suave */
+  margin: 0 0 2.5rem 0;
+  font-weight: 300; /* Ligero y elegante */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); /* Sombra casi invisible */
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    letter-spacing: 0.25px;
+  }
+}
+
+.coverage-section__map-btn {
+  background: linear-gradient(135deg, #d06a2b 0%, #e07b35 100%);
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 
+    0 4px 15px rgba(208, 106, 43, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+  
+  /* Brillo interno sutil siempre presente */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 30%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.3) 70%,
+      transparent 100%
+    );
+    transition: left 0.8s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Resplandor exterior mejorado */
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: 
+      radial-gradient(ellipse at center, 
+        rgba(255, 107, 53, 0.8) 0%,
+        rgba(240, 138, 69, 0.6) 25%,
+        rgba(208, 106, 43, 0.4) 50%,
+        transparent 70%
+      );
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.4s ease;
+    filter: blur(8px);
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, #e07b35 0%, #f08a45 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+      0 12px 30px rgba(208, 106, 43, 0.5),
+      0 20px 40px rgba(208, 106, 43, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(255, 107, 53, 0.4), /* Glow adicional */
+      inset 0 1px 0 rgba(255, 255, 255, 0.3); /* Brillo interno superior */
+    
+    /* Activar el brillo que se mueve */
+    &::before {
+      left: 100%;
+    }
+    
+    /* Activar el resplandor exterior intenso */
+    &::after {
+      opacity: 1;
+      transform: scale(1.1);
+      filter: blur(12px);
+    }
+    
+    .coverage-section__map-btn-arrow {
+      transform: translateX(4px) rotate(5deg);
+      filter: brightness(1.2);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: all 0.1s ease;
+    
+    &::after {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* Flecha del botón */
+.coverage-section__map-btn-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  opacity: 0.8;
+}
+
+/* ========================================== */
+/* METRICS SECTION - ALINEADO A LA IZQUIERDA CON TARJETAS */
+/* ========================================== */
+.coverage-section__metrics {
+  margin-bottom: 4rem;
+}
+
+.coverage-section__metrics-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left; /* Alineado a la izquierda */
+  margin: 0 0 2rem 0;
+}
+
+.coverage-section__metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tarjetas para las métricas como en el PDF */
+.coverage-section__metric-card {
+  background: $color-white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+.coverage-section__metric-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.coverage-section__metric-content {
+  flex: 1;
+}
+
+.coverage-section__metric-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.coverage-section__metric-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: $color-gray;
+  font-weight: 500;
+}
+
+/* ========================================== */
+/* SPECIALTIES SECTION - ALINEADO A LA IZQUIERDA */
+/* ========================================== */
+.coverage-section__specialties {
+  text-align: left; /* Cambio principal */
+}
+
+.coverage-section__specialties-header {
+  margin-bottom: 3rem;
+}
+
+.coverage-section__specialties-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+  text-align: left; /* Alineado a la izquierda */
+}
+
+.coverage-section__specialties-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: $color-gray;
+  margin: 0;
+  text-align: left; /* Alineado a la izquierda */
+}
+
+.coverage-section__specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tarjetas minimalistas según PDF exacto */
+.coverage-section__specialty-card {
+  background: $color-white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra sutil por defecto */
+  
+  &:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* Sombra más intensa en hover */
+    transform: translateY(-1px); /* Ligera elevación en hover */
+    
+    .coverage-section__specialty-arrow {
+      transform: translateX(2px);
+    }
+  }
+}
+
+/* Icono circular minimalista con azul del PDF */
+.coverage-section__specialty-icon {
+  width: 48px;
+  height: 48px;
+  background: #2563eb; /* Azul más claro y fuerte pero no tan intenso */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    color: $color-white;
+    stroke-width: 1.5;
+  }
+}
+
+/* Contenido principal minimalista */
+.coverage-section__specialty-content {
+  flex: 1;
+}
+
+.coverage-section__specialty-name {
+  font-family: 'Inter', sans-serif; /* Cambiado a Inter como en PDF */
+  font-size: 1rem; /* Tamaño más pequeño y minimalista */
+  font-weight: 500; /* Peso más ligero */
+  color: #374151; /* Color más suave */
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+/* Stats minimalistas horizontales */
+.coverage-section__specialty-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.coverage-section__specialty-stat {
+  text-align: left; /* Alineado a la izquierda como en PDF */
+}
+
+.coverage-section__specialty-number {
+  font-family: 'Inter', sans-serif; /* Inter para consistencia */
+  font-size: 0.875rem; /* Tamaño más pequeño */
+  font-weight: 600;
+  color: #6b7280; /* Color gris más suave */
+  line-height: 1;
+  margin-bottom: 0.125rem;
+  display: block;
+}
+
+.coverage-section__specialty-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #9ca3af; /* Color más claro */
+  font-weight: 400; /* Peso normal */
+  display: block;
+}
+
+/* Flecha minimalista */
+.coverage-section__specialty-arrow {
+  width: 16px;
+  height: 16px;
+  color: #d1d5db;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
