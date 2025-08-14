@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '../../styles/home/Hero.scss';
 
 // Importar videos desde assets
-import video1 from '../../../assets/videos/video3.mp4';
-import video2 from '../../../assets/videos/video4.mp4';
-import video3 from '../../../assets/videos/video2.mp4';
-import video4 from '../../../assets/videos/video1.mp4';
+import video1 from '../../../assets/videos/video8.mp4';
+import video2 from '../../../assets/videos/video7.mp4';
+import video3 from '../../../assets/videos/video6.mp4';
+import video4 from '../../../assets/videos/video4.mp4';
 import video5 from '../../../assets/videos/video5.mp4';
 
 const Hero = () => {
@@ -51,6 +51,9 @@ const Hero = () => {
   }, [checkBusinessHours]);
 
   const handleVideoEnd = useCallback(() => {
+    // Guardar la posición actual del scroll antes de la transición
+    const scrollPosition = window.scrollY;
+    
     setIsTransitioning(true);
     
     setTimeout(() => {
@@ -58,14 +61,33 @@ const Hero = () => {
         (prevIndex + 1) % videos.length
       );
       setIsTransitioning(false);
+      
+      // Mantener la posición del scroll después del cambio
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollPosition);
+      });
     }, 1000);
   }, [videos.length]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      // Guardar la posición actual del scroll
+      const currentScrollPosition = window.scrollY;
+      
       video.addEventListener('ended', handleVideoEnd);
+      
+      // Prevenir cualquier comportamiento de foco automático
+      video.blur();
       video.play().catch(console.error);
+      
+      // Asegurar que la posición del scroll se mantenga
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: currentScrollPosition,
+          behavior: 'instant'
+        });
+      });
     }
 
     return () => {
@@ -80,9 +102,9 @@ const Hero = () => {
   };
 
   const handleGetStartedClick = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    const motiveDifferenceSection = document.getElementById('motive-difference');
+    if (motiveDifferenceSection) {
+      motiveDifferenceSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -97,7 +119,9 @@ const Hero = () => {
           src={videos[currentVideoIndex]}
           muted
           playsInline
+          autoPlay
           preload="metadata"
+          style={{ pointerEvents: 'none' }}
         />
         {isTransitioning && (
           <video
@@ -106,7 +130,9 @@ const Hero = () => {
             src={videos[(currentVideoIndex + 1) % videos.length]}
             muted
             playsInline
+            autoPlay
             preload="metadata"
+            style={{ pointerEvents: 'none' }}
           />
         )}
         <div className="hero__overlay"></div>

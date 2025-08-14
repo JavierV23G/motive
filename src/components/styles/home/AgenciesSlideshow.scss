@@ -24,12 +24,23 @@ $color-light-gray: #f8f9fa;
   }
 }
 
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0);
+/* Animación de izquierda a derecha (primera línea) */
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(0);
   }
-  50% {
-    transform: translateY(-2px);
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Animación de derecha a izquierda (segunda línea) */
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -76,46 +87,63 @@ $color-light-gray: #f8f9fa;
 }
 
 .agencies-slideshow__highlight {
-  color: $color-blue; /* Azul según PDF */
+  color: $color-blue;
 }
 
 /* ========================================== */
-/* SLIDESHOW CONTAINER - MOVIMIENTO SIMPLE */
+/* SLIDESHOW CONTAINER - DOS LÍNEAS */
 /* ========================================== */
 .agencies-slideshow__container {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-bottom: 1rem;
   background: $color-white;
   padding: 2rem 0;
 }
 
+/* Fila individual */
+.agencies-slideshow__row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Track con animación */
 .agencies-slideshow__track {
   display: flex;
   align-items: center;
   gap: 3rem;
-  animation: slideLeftToRight 30s linear infinite;
   width: max-content;
+  
+  /* Primera línea - movimiento de derecha a izquierda */
+  &--left {
+    animation: slideLeftToRight 60s linear infinite; /* Más lento: 60s */
+  }
+  
+  /* Segunda línea - movimiento de izquierda a derecha */
+  &--right {
+    animation: slideRightToLeft 60s linear infinite; /* Más lento: 60s */
+  }
   
   @media (max-width: 768px) {
     gap: 2rem;
-    animation-duration: 25s;
+    
+    &--left, &--right {
+      animation-duration: 50s;
+    }
   }
   
   @media (max-width: 480px) {
     gap: 1.5rem;
-    animation-duration: 20s;
-  }
-}
-
-/* Animación de slideshow continuo de derecha a izquierda */
-@keyframes slideLeftToRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+    
+    &--left, &--right {
+      animation-duration: 40s;
+    }
   }
 }
 
@@ -131,12 +159,12 @@ $color-light-gray: #f8f9fa;
 
 /* Tarjeta estándar para todos los logos */
 .agencies-slideshow__card {
-  width: 200px; /* Ancho fijo estándar */
-  height: 100px; /* Altura fija estándar */
-  background: #e9ecef; /* Gris más oscuro para mejor contraste con texto blanco */
+  width: 200px;
+  height: 100px;
+  background: #e9ecef;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 2px solid #dee2e6; /* Borde gris que combine con el nuevo fondo */
+  border: 2px solid #dee2e6;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -146,11 +174,12 @@ $color-light-gray: #f8f9fa;
   overflow: hidden;
   
   &:hover {
-    transform: translateY(-2px) scale(1.05); /* Solo agrandamiento sutil */
+    transform: translateY(-2px) scale(1.05);
     box-shadow: 
       0 6px 20px rgba(0, 0, 0, 0.1),
       0 10px 25px rgba(0, 0, 0, 0.06);
     border-color: rgba(23, 70, 134, 0.2);
+    background: #f8f9fa;
   }
   
   @media (max-width: 768px) {
@@ -175,8 +204,6 @@ $color-light-gray: #f8f9fa;
   transition: all 0.3s ease;
   position: relative;
   z-index: 2;
-  
-  /* Colores originales - sin filtros */
   filter: none;
   opacity: 1;
   
@@ -206,6 +233,7 @@ $color-light-gray: #f8f9fa;
   }
 }
 
+
 /* ========================================== */
 /* RESPONSIVE DESIGN */
 /* ========================================== */
@@ -224,6 +252,10 @@ $color-light-gray: #f8f9fa;
   
   .agencies-slideshow__container {
     padding: 1.5rem 0;
+  }
+  
+  .agencies-slideshow__row {
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -244,7 +276,7 @@ $color-light-gray: #f8f9fa;
     padding: 1rem 0;
   }
   
-  .agencies-slideshow__slide {
-    justify-content: space-around;
+  .agencies-slideshow__row {
+    margin-bottom: 1rem;
   }
 }

@@ -91,6 +91,9 @@ $color-gray: #6b7280;
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 1;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .hero__video.transitioning-out {
