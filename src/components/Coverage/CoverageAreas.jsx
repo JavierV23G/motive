@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../Home/Header/Header.jsx';
 import Footer from '../Home/Footer/Footer.jsx';
 import '../styles/coverage/CoverageAreas.scss';
@@ -7,8 +8,27 @@ import MapaOT from '../../assets/MapaOT.png';
 import MapaST from '../../assets/MapaST.png';
 
 const CoverageAreas = () => {
+  const location = useLocation();
   const [activeService, setActiveService] = useState('PT');
   const [showDetails, setShowDetails] = useState(false);
+  
+  // Obtener el servicio de los parámetros de búsqueda de la URL
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const service = searchParams.get('service');
+    
+    // Mapear los IDs de servicio a los códigos esperados
+    const serviceMap = {
+      'pt': 'PT',
+      'ot': 'OT',
+      'slp': 'ST',  // slp (Speech Language Pathology) se mapea a ST
+      'st': 'ST'
+    };
+    
+    if (service && serviceMap[service.toLowerCase()]) {
+      setActiveService(serviceMap[service.toLowerCase()]);
+    }
+  }, [location]);
 
   // REAL coverage data organized by service - Updated with actual Motive Home Care areas
 const coverageByService = {

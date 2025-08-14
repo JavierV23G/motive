@@ -10,6 +10,11 @@ const CoverageSection = () => {
     navigate('/coverage-areas');
   };
 
+  const handleSpecialtyClick = (specialtyId) => {
+    // Navegar a coverage-areas con el servicio específico
+    navigate(`/coverage-areas?service=${specialtyId}`);
+  };
+
 
   const metrics = [
     {
@@ -124,8 +129,12 @@ const CoverageSection = () => {
           
           <div className="coverage-section__specialties-grid">
             {specialties.map((specialty) => (
-              <div key={specialty.id} className="coverage-section__specialty-card">
-                
+              <div 
+                key={specialty.id} 
+                className="coverage-section__specialty-card"
+                onClick={() => handleSpecialtyClick(specialty.id)}
+                style={{ cursor: 'pointer' }}
+              >
                 {/* Icono circular como en el PDF */}
                 <div className="coverage-section__specialty-icon">
                   {specialty.id === 'pt' && (
