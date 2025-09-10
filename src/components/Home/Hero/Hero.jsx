@@ -3,10 +3,10 @@ import '../../styles/home/Hero.scss';
 
 // Importar videos desde assets
 import video1 from '../../../assets/videos/video8.mp4';
-import video2 from '../../../assets/videos/video7.mp4';
-import video3 from '../../../assets/videos/video6.mp4';
-import video4 from '../../../assets/videos/video4.mp4';
-import video5 from '../../../assets/videos/video5.mp4';
+import video2 from '../../../assets/videos/video1.mp4';
+import video3 from '../../../assets/videos/video4.mp4';
+import video4 from '../../../assets/videos/video6.mp4';
+import video5 from '../../../assets/videos/video2.mp4';
 
 const Hero = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
